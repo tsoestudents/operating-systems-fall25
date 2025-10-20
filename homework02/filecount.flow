@@ -1,3 +1,5 @@
+# list directory contents and count lines, words, and bytes
+
 node=list_files
 command=ls
 

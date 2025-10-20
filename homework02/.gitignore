@@ -1,0 +1,15 @@
+# Binary output
+flow
+*.o
+*.out
+*.bak
+*.swp
+
+# Local test and scratch files
+out.txt
+foo.txt
+alpha.txt
+result.txt
+
+# macOS/Linux editor or system junk
+.DS_Store

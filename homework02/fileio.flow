@@ -1,0 +1,18 @@
+# read file content and count words
+
+node=read_file
+command=cat
+
+file=input_file
+name=result.txt
+
+node=word_count
+command=wc
+
+pipe=read_pipe
+from=input_file
+to=read_file
+
+pipe=process_pipe
+from=read_pipe
+to=word_count

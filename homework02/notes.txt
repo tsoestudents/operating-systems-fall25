@@ -1,0 +1,6 @@
+- Commands executed via /bin/sh -c (no system()).
+- Missing files print perror-style errors.
+- Lines starting with '#' or '//' are treated as comments.
+- Cyclic dependencies are detected and abort execution with an error.
+- 'file' works both as a source (read) and a sink (write via to= in pipe).
+- Input strictly follows the assignment’s .flow format.
