@@ -16,7 +16,7 @@ It uses standard Unix calls (`fork()`, `pipe()`, `dup2()`, `exec()`, `waitpid()`
   - **stderr=** → redirects errors from a node to another target  
 - Ignores comments starting with `#` or `//`.  
 - Detects cyclic dependencies and exits cleanly with an error message.  
-- Provides clear error handling for missing files.  
+- Provides clear error handling for missing files.
 
 ---
 
@@ -24,10 +24,12 @@ It uses standard Unix calls (`fork()`, `pipe()`, `dup2()`, `exec()`, `waitpid()`
 ```bash
 gcc -Wall -Wextra -O2 -Wno-stringop-truncation -o flow flow.c
 
----
+
+
+
 
 ## Run Examples
-
+```bash
 # Basic test
 ./flow filecount.flow doit
 
@@ -38,22 +40,19 @@ gcc -Wall -Wextra -O2 -Wno-stringop-truncation -o flow flow.c
 ./flow your_tests.flow save_ls
 
 
-Other .flow files such as stderr.flow and fileio.flow can be used for additional testing.
 
-
----
-
-## Extra Credit
-save_ls → Demonstrates file sink redirection (writes output to file).
-stderr_pipeline → Shows error stream redirection.
-
-
+Other `.flow` files such as `stderr.flow` and `fileio.flow` can be used for additional testing.
 
 ---
 
-## Assumptions 
-Input files follow assignment format exactly.
-No use of system().
-Works in any standard Linux environment (tested on Kali Linux).
-Missing files trigger clear error messages.
-Cyclic dependencies are detected and handled gracefully.
+## Extra Credit (Optional)
+- **save_ls** → Demonstrates file sink redirection (writes output to file).  
+- **stderr_pipeline** → Shows error stream redirection.
+
+---
+
+## Assumptions
+- Input files follow assignment format exactly.  
+- No use of `system()`.  
+- Works in any standard Linux environment (tested on Kali Linux).
+
