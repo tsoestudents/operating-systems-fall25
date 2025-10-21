@@ -1,3 +1,5 @@
+// run two separate flows and concatenate their outputs before wc
+
 node=cat_foo
 command=cat foo.txt
 

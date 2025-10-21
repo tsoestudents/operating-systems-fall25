@@ -1,0 +1,8 @@
+NetID of first partner : sz1234
+NetID of second partner : pt2645
+
+Full Name of first partner : Sahil Shailesh Zunjarrao
+Full Name of second partner : Paxal Dilip Talawat
+
+GitHub Account Name of first partner : sz5175
+GitHub Account Name of second partner : pt2645

@@ -1,0 +1,86 @@
+# --- Test 1: stderr chaining through a pipe into sed then wc ---
+# Simulates: (mkdir a 2>&1) | sed 's/[:]/-/g' | wc
+
+node=mkdir_attempt
+command=mkdir a
+
+stderr=err_of_mkdir
+from=mkdir_attempt
+
+node=sed_colon_to_dash
+command=sed 's/:/-/g'
+
+pipe=err_to_sed
+from=err_of_mkdir
+to=sed_colon_to_dash
+
+node=wcnode
+command=wc
+
+pipe=stderr_pipeline
+from=err_to_sed
+to=wcnode
+
+// --- Test 2: concatenate mixed sources (file + node + pipe) ---
+# Simulates: ( cat alpha.txt ; echo middle ; (cat alpha.txt | tr a-z A-Z) ) | wc
+
+file=alpha_src
+name=alpha.txt
+
+node=cat_alpha
+command=cat
+
+pipe=read_alpha
+from=alpha_src
+to=cat_alpha
+
+node=echo_middle
+command=echo middle
+
+node=to_upper
+command=tr a-z A-Z
+
+pipe=alpha_upper
+from=read_alpha
+to=to_upper
+
+concatenate=mixcat
+parts=3
+part_0=read_alpha
+part_1=echo_middle
+part_2=alpha_upper
+
+node=wc2
+command=wc
+
+pipe=mix_and_count
+from=mixcat
+to=wc2
+
+# --- Test 3: file as destination (ls > out.txt), then verify by wc ---
+node=lsnode
+command=ls
+
+file=outf
+name=out.txt
+
+pipe=save_ls
+from=lsnode
+to=outf
+
+file=outf_read
+name=out.txt
+
+node=catnode
+command=cat
+
+pipe=read_out
+from=outf_read
+to=catnode
+
+node=wc3
+command=wc
+
+pipe=count_saved
+from=read_out
+to=wc3
